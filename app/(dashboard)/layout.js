@@ -15,6 +15,7 @@ export default function DashboardLayout({ children }) {
         <label htmlFor="my-drawer-2" className="drawer-button lg:hidden fixed top-6 right-6">
           <FaBars className="w-8 h-8 text-primary" />
         </label>
+        {/* main content will be here */}
         <div className="bg-base-200 px-8 py-12 min-h-screen">{children}</div>
       </div>
       <div className="drawer-side">
