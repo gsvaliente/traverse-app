@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HomePage() {
   return (
     <div
@@ -16,7 +18,9 @@ export default function HomePage() {
             interests. Just tell us where you are headed, and let our app guide you to unforgettable experiences. Start
             your journey of discovery today!
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <Link href={"/chat"} className="btn btn-primary">
+            Get Started
+          </Link>
         </div>
       </div>
     </div>
