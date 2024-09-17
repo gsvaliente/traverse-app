@@ -11,6 +11,9 @@ importers:
       '@clerk/nextjs':
         specifier: ^5.5.3
         version: 5.5.3(next@14.2.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tanstack/react-query-devtools':
+        specifier: ^5.56.2
+        version: 5.56.2(@tanstack/react-query@5.56.2(react@18.3.1))(react@18.3.1)
       next:
         specifier: 14.2.11
         version: 14.2.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -23,6 +26,9 @@ importers:
       react-icons:
         specifier: ^5.3.0
         version: 5.3.0(react@18.3.1)
+      react-query:
+        specifier: link:@tanstack/react-query
+        version: link:@tanstack/react-query
     devDependencies:
       '@tailwindcss/typography':
         specifier: ^0.5.15
@@ -233,6 +239,23 @@ packages:
     resolution: {integrity: sha512-AqhlCXl+8grUz8uqExv5OTtgpjuVIwFTSXTrh8y9/pw6q2ek7fJ+Y8ZEVw7EB2DCcuCOtEjf9w3+J3rzts01uA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders || >=4.0.0-alpha.20'
+
+  '@tanstack/query-core@5.56.2':
+    resolution: {integrity: sha512-gor0RI3/R5rVV3gXfddh1MM+hgl0Z4G7tj6Xxpq6p2I03NGPaJ8dITY9Gz05zYYb/EJq9vPas/T4wn9EaDPd4Q==}
+
+  '@tanstack/query-devtools@5.56.1':
+    resolution: {integrity: sha512-xnp9jq/9dHfSCDmmf+A5DjbIjYqbnnUL2ToqlaaviUQGRTapXQ8J+GxusYUu1IG0vZMaWdiVUA4HRGGZYAUU+A==}
+
+  '@tanstack/react-query-devtools@5.56.2':
+    resolution: {integrity: sha512-7nINJtRZZVwhTTyDdMIcSaXo+EHMLYJu1S2e6FskvvD5prx87LlAXXWZDfU24Qm4HjshEtM5lS3HIOszNGblcw==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.56.2
+      react: ^18 || ^19
+
+  '@tanstack/react-query@5.56.2':
+    resolution: {integrity: sha512-SR0GzHVo6yzhN72pnRhkEFRAHMsUo5ZPzAxfTMvUxFIDVS6W9LYUp6nXW3fcHVdg0ZJl8opSH85jqahvm6DSVg==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -1853,6 +1876,21 @@ snapshots:
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
       tailwindcss: 3.4.11
+
+  '@tanstack/query-core@5.56.2': {}
+
+  '@tanstack/query-devtools@5.56.1': {}
+
+  '@tanstack/react-query-devtools@5.56.2(@tanstack/react-query@5.56.2(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@tanstack/query-devtools': 5.56.1
+      '@tanstack/react-query': 5.56.2(react@18.3.1)
+      react: 18.3.1
+
+  '@tanstack/react-query@5.56.2(react@18.3.1)':
+    dependencies:
+      '@tanstack/query-core': 5.56.2
+      react: 18.3.1
 
   '@types/json-schema@7.0.15': {}
 
