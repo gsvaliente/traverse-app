@@ -54,6 +54,7 @@ export function NewTour() {
             <option value="romantic">Romantic</option>
             <option value="adventure">Adventure</option>
             <option value="relaxed">Relaxed</option>
+            <option value="kid-friendly">Kid Friendly</option>
           </select>
           <select name="tourLength" className="select input-bordered join-item w-sm" required>
             <option value="" disabled selected>
@@ -70,6 +71,7 @@ export function NewTour() {
           </button>
         </div>
       </form>
+      {isPending && <span className="loading loading-lg loading-ring"></span>}
     </div>
   );
 }
