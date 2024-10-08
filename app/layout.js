@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider afterSignOutUrl="/">
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <div className="navbar bg-base-200 rounded-3xl mt-2">
+          <div className="navbar bg-base-200 rounded-3xl mt-2 fixed">
             <div className="navbar-start">
               <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
