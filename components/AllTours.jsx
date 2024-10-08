@@ -10,7 +10,7 @@ export function AllTours() {
   const [userSearchQuery, setUserSearchQuery] = useState("");
 
   const { data, isPending } = useQuery({
-    queryKey: ["tours", ""],
+    queryKey: ["tours", userSearchQuery],
     queryFn: () => getAllTours(userSearchQuery),
   });
 
