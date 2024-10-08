@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 
-import { generateChatResponse } from "@/utils/actions";
+import { createChatResponse } from "@/utils/actions";
 import { useMutation } from "@tanstack/react-query";
 
 export function Chat() {
   const [userQuestion, setUserQuestion] = useState("");
+  const [messages, setMessages] = useState([]);
 
   const { mutate: createMessage } = useMutation({
-    mutationFn: (message) => generateChatResponse(message),
+    mutationFn: (message) => createChatResponse(message),
   });
 
   const handleSubmit = (e) => {
