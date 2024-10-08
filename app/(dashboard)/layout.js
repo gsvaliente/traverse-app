@@ -4,5 +4,5 @@ export const metadata = {
 };
 
 export default function DashboardLayout({ children }) {
-  return <div className="flex items-center justify-center w-full min-w-screen bg-base-300 min-h-fit">{children}</div>;
+  return <div className="flex items-center justify-center w-full min-w-screen bg-base-100 min-h-fit">{children}</div>;
 }

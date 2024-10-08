@@ -72,7 +72,7 @@ export function NewTour() {
           </button>
         </div>
       </form>
-      <div className="mt-5 max-w-3xl">
+      <div className="mt-5 max-w-3xl mx-auto">
         {isPending && <span className="loading loading-lg loading-ring"></span>}
         {data ? <TourInfo tour={data} /> : null}
       </div>
