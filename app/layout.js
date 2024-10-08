@@ -3,7 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import { NavLinks } from "@/components/NavLinks";
+import { UserButtons } from "@/components/UserButtons";
 import { Provider } from "@/utils/providers";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -44,27 +46,12 @@ export default function RootLayout({ children }) {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
                 >
-                  {/* <li>
-                    <a>Item 1</a>
-                  </li>
-                  <li>
-                    <a>Parent</a>
-                    <ul className="p-2">
-                      <li>
-                        <a>Submenu 1</a>
-                      </li>
-                      <li>
-                        <a>Submenu 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a>Item 3</a>
-                  </li> */}
                   <NavLinks />
                 </ul>
               </div>
-              <a className="btn btn-ghost text-xl">Traverse</a>
+              <Link href={"/"} className="btn btn-ghost text-xl">
+                Traverse
+              </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">
@@ -72,7 +59,7 @@ export default function RootLayout({ children }) {
               </ul>
             </div>
             <div className="navbar-end">
-              <a className="btn">Button</a>
+              <UserButtons />
             </div>
           </div>
           <Provider>{children}</Provider>
