@@ -100,3 +100,45 @@ export const getExistingTour = async (tour) => {
     },
   });
 };
+
+export const getAllTours = async (searchQuery) => {
+  const user = await currentUser();
+
+  if (!searchQuery) {
+    const tourList = prisma.tour.findMany({
+      where: {
+        userId: user.id,
+      },
+      orderBy: {
+        city: "asc",
+        tourType: "asc",
+      },
+    });
+
+    return tourList;
+  }
+
+  const tourList = await prisma.tour.findMany({
+    where: {
+      userId: user.id,
+      OR: [
+        {
+          city: {
+            contains: searchQuery,
+          },
+        },
+        {
+          country: {
+            contains: searchQuery,
+          },
+        },
+      ],
+    },
+    orderBy: {
+      city: "asc",
+      tourType: "asc",
+    },
+  });
+
+  return tourList;
+};

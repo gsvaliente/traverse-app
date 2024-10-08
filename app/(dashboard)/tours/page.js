@@ -1,7 +1,12 @@
-export default function ToursPage() {
+import { AllTours } from "@/components/AllTours";
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+
+export default async function AllToursPage() {
+  const queryClient = new QueryClient();
+
   return (
-    <>
-      <h2>This is the Tours page</h2>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <AllTours />
+    </HydrationBoundary>
   );
 }
