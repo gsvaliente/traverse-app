@@ -9,14 +9,29 @@ export function Chat() {
   const [userQuestion, setUserQuestion] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const { mutate: createMessage } = useMutation({
-    mutationFn: (message) => createChatResponse(message),
+  const {
+    mutate: createMessage,
+    isPending,
+    data,
+  } = useMutation({
+    mutationFn: (question) => createChatResponse([...messages, question]),
+    onSuccess: (data) => {
+      if (!data) {
+        toast.error("Oops, something went wrong from our side");
+      }
+      setMessages((curr) => [...curr, data]);
+    },
+    onError: (error) => {
+      toast.error("Oops, something went wrong from our side");
+    },
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    createMessage(userQuestion);
+    const newQuery = { role: "user", content: userQuestion };
+    createMessage(newQuery);
+    setMessages((curr) => [...curr, newQuery]);
     setUserQuestion("");
   };
 
