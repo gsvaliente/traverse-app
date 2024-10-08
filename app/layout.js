@@ -2,6 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import { NavbarHeader } from "@/components/NavbarHeader";
 import { NavLinks } from "@/components/NavLinks";
 import { UserButtons } from "@/components/UserButtons";
 import { Provider } from "@/utils/providers";
@@ -50,7 +51,7 @@ export default function RootLayout({ children }) {
                 </ul>
               </div>
               <Link href={"/"} className="btn btn-ghost text-xl">
-                Traverse
+                <NavbarHeader />
               </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -58,7 +59,7 @@ export default function RootLayout({ children }) {
                 <NavLinks />
               </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-2">
               <UserButtons />
             </div>
           </div>

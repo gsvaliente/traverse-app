@@ -18,7 +18,7 @@ export async function UserButtons() {
       <Link href={"/sign-in"} className="btn btn-primary">
         Sign In
       </Link>
-      <Link href={"/sign-up"} className="btn btn-ghost btn-secondary">
+      <Link href={"/sign-up"} className="btn btn-outline btn-primary">
         Register
       </Link>
     </>
