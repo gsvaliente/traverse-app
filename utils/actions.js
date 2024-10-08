@@ -111,7 +111,7 @@ export const getAllTours = async (searchQuery) => {
       },
       orderBy: {
         city: "asc",
-        tourType: "asc",
+        // tourType: "asc",
       },
     });
 
@@ -136,7 +136,7 @@ export const getAllTours = async (searchQuery) => {
     },
     orderBy: {
       city: "asc",
-      tourType: "asc",
+      // tourType: "asc",
     },
   });
 
