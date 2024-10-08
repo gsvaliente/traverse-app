@@ -6,6 +6,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// CHAT
 export const createChatResponse = async (chatConversation) => {
   try {
     const res = await openai.chat.completions.create({
