@@ -12,3 +12,20 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Tour {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  city String
+  country String
+  tourType String
+  tourLength String
+  title String
+  description String @db.Text
+  image String? @db.Text
+  sights Json
+  userId String
+
+  @@unique([city,country,tourType])
+}
