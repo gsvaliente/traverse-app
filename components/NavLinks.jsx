@@ -21,7 +21,8 @@ const navLink = [
 
 export function NavLinks() {
   return (
-    <ul className="menu text-base-content">
+    <>
+      {/* <ul className="menu text-base-content"> */}
       {navLink.map((link) => (
         <li key={link.href}>
           <Link href={link.href} className="capitalize font-bold ">
@@ -29,6 +30,7 @@ export function NavLinks() {
           </Link>
         </li>
       ))}
-    </ul>
+    </>
+    // </ul>
   );
 }
