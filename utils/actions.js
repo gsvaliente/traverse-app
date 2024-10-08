@@ -1,7 +1,21 @@
 "use server";
 
-export const createChatResponse = async (chatMessage) => {
-  console.log(chatMessage);
+import OpenAI from "openai";
 
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+export const createChatResponse = async (chatMessage) => {
+  const res = await openai.chat.completions.create({
+    messages: [
+      { role: "system", content: "you are an experienced helpful tour guide" },
+      { role: "user", content: chatMessage },
+    ],
+    model: "gpt-3.5-turbo",
+    temperature: 0,
+  });
+
+  console.log(res.choices[0].message);
   return "success";
 };
