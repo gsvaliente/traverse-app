@@ -27,5 +27,5 @@ model Tour {
   sights Json
   userId String
 
-  @@unique([city,country,tourType])
+  @@unique([city,country,tourType,tourLength])
 }
