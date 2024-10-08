@@ -18,9 +18,14 @@ export default function HomePage() {
             interests. Just tell us where you are headed, and let our app guide you to unforgettable experiences. Start
             your journey of discovery today!
           </p>
-          <Link href={"/chat"} className="btn btn-primary">
-            Get Started
-          </Link>
+          <div className="space-x-4">
+            <Link href={"/chat"} className="btn btn-primary">
+              Get Started
+            </Link>
+            <Link href={"/chat"} className="btn btn-primary btn-outline">
+              Learn More
+            </Link>
+          </div>
         </div>
       </div>
     </div>
