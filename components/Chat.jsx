@@ -9,11 +9,7 @@ export function Chat() {
   const [userQuestion, setUserQuestion] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const {
-    mutate: createMessage,
-    isPending,
-    data,
-  } = useMutation({
+  const { mutate: createMessage, isPending } = useMutation({
     mutationFn: (question) => createChatResponse([...messages, question]),
     onSuccess: (data) => {
       if (!data) {

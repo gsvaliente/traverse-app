@@ -1,13 +1,30 @@
 "use client";
 
+import { createTourResponse } from "@/utils/actions";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+
 export function NewTour() {
+  const { mutate, isPending, data } = useMutation({
+    mutationFn: async (destination) => {
+      const newTour = await createTourResponse(destination);
+
+      if (newTour) {
+        return newTour;
+      }
+
+      toast.error("City and country are not found");
+      return null;
+    },
+  });
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const selectedDestination = Object.fromEntries(formData.entries());
 
-    console.log(selectedDestination);
+    mutate(selectedDestination);
   };
 
   return (

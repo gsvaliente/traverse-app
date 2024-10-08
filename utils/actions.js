@@ -20,3 +20,12 @@ export const createChatResponse = async (chatConversation) => {
     return null;
   }
 };
+
+// TOUR CREATION
+
+export const createTourResponse = async (destination) => {
+  const { city, country, tourType, tourLength } = destination;
+
+  console.log(destination);
+  return "success";
+};
