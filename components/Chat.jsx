@@ -36,8 +36,8 @@ export function Chat() {
   };
 
   return (
-    <div className="min-h-[calc(93vh-3rem)] flex flex-col pb-5 border rounded-xl my-6 border-base-100 bg-base-200 w-[75vw]">
-      <div className="flex-grow overflow-y-auto p-5 max-w-5xl w-full mx-auto">
+    <div className="h-[calc(100vh-7rem)] flex flex-col pb-5 border rounded-xl my-6 border-base-100 bg-base-200 w-[75vw] mx-auto">
+      <div className="flex-grow overflow-y-auto p-5">
         <div className="space-y-4">
           {messages.map((message, index) => {
             const { role, content } = message;
@@ -46,7 +46,7 @@ export function Chat() {
 
             return (
               <div key={index} className={`flex ${position}`}>
-                <div className={`${textColors} p-3 rounded-xl max-w-lg w-full break-words`}>{content}</div>
+                <div className={`${textColors} p-3 rounded-xl max-w-lg w-fit break-words`}>{content}</div>
               </div>
             );
           })}
@@ -64,8 +64,8 @@ export function Chat() {
             value={userQuestion}
             onChange={(e) => setUserQuestion(e.target.value)}
           />
-          <button className="btn btn-primary px-4 py-2" type="submit">
-            Send
+          <button className="btn btn-primary px-4 py-2" type="submit" disabled={isPending}>
+            {isPending ? "Working on it" : "Send"}
           </button>
         </div>
       </form>
