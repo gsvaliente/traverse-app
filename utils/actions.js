@@ -14,7 +14,6 @@ export const createChatResponse = async (chatConversation) => {
       temperature: 0,
     });
 
-    console.log(res.choices[0].message);
     return res.choices[0].message;
   } catch (error) {
     return null;
