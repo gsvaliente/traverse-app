@@ -1,6 +1,8 @@
 "use server";
 
+import { currentUser } from "@clerk/nextjs/server";
 import OpenAI from "openai";
+import prisma from "./db";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -25,6 +27,8 @@ export const createChatResponse = async (chatConversation) => {
 
 export const createTourResponse = async (destination) => {
   const { city, country, tourType, tourLength } = destination;
+  // city = city.toLowerCase().charAt(0).toUpperCase() + city.slice(1);
+  // country = country.toLowerCase().charAt(0).toUpperCase() + country.slice(1);
 
   const query = `Find a ${city} in ${country}.
 If ${city} in ${country} exists, create a list of ${tourType} things can do in this ${city},${country}.
@@ -33,9 +37,11 @@ Once you have a list, create a ${tourLength}-day tour. Response should be in the
   "tour": {
     "city": "${city}",
     "country": "${country}",
+    "tourType":"${tourType}",
+    "tourLength":"${tourLength}",
     "title": "title of the tour",
     "description": "description of the city and tour",
-    "sights": ["short paragraph of sight 1 ", "short paragraph of sight 2","short paragraph of sight 3"]
+    "sights": ["short paragraph of sight 1 ", "short paragraph of sight 2","short paragraph of sight 3", "short paragraph of sight 4"]
   }
 }
 If no information on exact ${city}, or ${city} exists, or it's population is less than 100, or it is not located in the following ${country} return { "tour": null }, with no additional characters.`;
@@ -62,4 +68,35 @@ If no information on exact ${city}, or ${city} exists, or it's population is les
     console.log(error);
     return null;
   }
+};
+
+export const createNewUniqueTour = async (tour) => {
+  const user = await currentUser();
+
+  return prisma.tour.create({
+    data: {
+      ...tour,
+      city: tour.city.toLowerCase(),
+      country: tour.country.toLowerCase(),
+      userId: user.id,
+    },
+  });
+};
+
+export const getExistingTour = async (tour) => {
+  const user = await currentUser();
+
+  const { city, country, tourType, tourLength } = tour;
+
+  return prisma.tour.findUnique({
+    where: {
+      userId: user.id,
+      city_country_tourType_tourLength: {
+        city: city.toLowerCase(),
+        country: country.toLowerCase(),
+        tourType,
+        tourLength,
+      },
+    },
+  });
 };
