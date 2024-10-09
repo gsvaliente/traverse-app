@@ -15,8 +15,8 @@ export function AllTours() {
   });
 
   return (
-    <div className="h-[calc(100vh-7rem)] py-5 my-5 flex flex-col">
-      <form className="max-w-lg mb-12 ">
+    <div className="h-screen py-5 my-5 flex flex-col items-center">
+      <form className="max-w-lg mb-12">
         <div className="join w-full">
           <input
             type="text"
