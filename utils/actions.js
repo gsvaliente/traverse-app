@@ -1,8 +1,11 @@
 "use server";
 
 import { currentUser } from "@clerk/nextjs/server";
+import axios from "axios";
 import OpenAI from "openai";
 import prisma from "./db";
+
+const url = `https://api.unsplash.com/search/photos?client_id=${process.env.UNSPLASH_API_KEY}&query=`;
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -72,6 +75,7 @@ If no information on exact ${city}, or ${city} exists, or it's population is les
 
 export const createNewUniqueTour = async (tour) => {
   const user = await currentUser();
+  const { data } = await axios(`${url}${tour.city}`);
 
   return prisma.tour.create({
     data: {
@@ -79,6 +83,7 @@ export const createNewUniqueTour = async (tour) => {
       city: tour.city.toLowerCase(),
       country: tour.country.toLowerCase(),
       userId: user.id,
+      image: data?.results[0]?.urls?.raw,
     },
   });
 };
