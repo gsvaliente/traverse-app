@@ -9,7 +9,7 @@ export function TourInfo({ tour }) {
       <div className="flex flex-wrap gap-5 justify-center mx-auto">
         {sights.map((sight, index) => {
           return (
-            <div className="card bg-base-300 w-80 shadow-xl mb-5">
+            <div key={sight} className="card bg-base-300 w-80 shadow-xl mb-5">
               <div className="absolute top-[-10px] left-[-10px] bg-white text-black w-10 h-10 flex items-center justify-center rounded-full shadow-md font-bold">
                 {index + 1}
               </div>
