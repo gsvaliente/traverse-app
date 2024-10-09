@@ -130,11 +130,13 @@ export const getAllTours = async (searchQuery) => {
         {
           city: {
             contains: searchQuery,
+            mode: "insensitive",
           },
         },
         {
           country: {
             contains: searchQuery,
+            mode: "insensitive",
           },
         },
       ],
