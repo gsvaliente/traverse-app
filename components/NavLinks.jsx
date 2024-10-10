@@ -2,16 +2,16 @@ import Link from "next/link";
 
 const navLink = [
   {
-    href: "/chat",
-    title: "chat",
-  },
-  {
     href: "/tours",
     title: "tours",
   },
   {
     href: "/tours/new-tour",
     title: "new tour",
+  },
+  {
+    href: "/chat",
+    title: "chat",
   },
   {
     href: "/profile",
@@ -25,7 +25,7 @@ export function NavLinks() {
       {/* <ul className="menu text-base-content"> */}
       {navLink.map((link) => (
         <li key={link.href}>
-          <Link href={link.href} className="capitalize font-bold ">
+          <Link href={link.href} className="uppercase font-bold ">
             {link.title}
           </Link>
         </li>

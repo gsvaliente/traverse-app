@@ -37,9 +37,9 @@ export function NewTour() {
   };
 
   return (
-    <div className="h-[calc(100vh-7rem)] py-5 my-5 flex flex-col px-3">
+    <div className="h-[calc(100vh-12rem)] py-10 my-5 flex flex-col px-3">
       <form className="flex items-center justify-center flex-col" onSubmit={handleSubmit}>
-        <h2 className="capitalize mb-5 text-4xl">Create your dream destination</h2>
+        <h2 className="capitalize mb-8 text-4xl">Create your dream destination</h2>
         <div className="join w-full join-vertical sm:join-horizontal">
           <input
             type="text"

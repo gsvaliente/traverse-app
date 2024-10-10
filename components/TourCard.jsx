@@ -5,12 +5,12 @@ export function TourCard({ tour }) {
   const { city, id, country, tourType, title, tourLength, image } = tour;
   return (
     <Link href={`/tours/${id}`} className="card card-compact rounded-xl bg-base-100">
-      <div className="card bg-base-100 w-80 shadow-xl">
+      <div className="card bg-base-100 w-80 shadow-xl hover:border-t hover:border-secondary hover:transition-all">
         <figure className="overflow-hidden">
           {image ? (
             <Image
               src={image}
-              width={300}
+              width={400}
               height={150}
               priority
               alt={title}

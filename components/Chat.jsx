@@ -32,7 +32,7 @@ export function Chat() {
   };
 
   return (
-    <div className="h-[calc(100vh-7rem)] flex flex-col pb-5 border rounded-xl my-6 border-base-100 bg-base-200 w-[75vw] mx-auto">
+    <div className="h-[calc(100vh-12rem)] flex flex-col pb-5 border rounded-xl my-14 border-base-100 bg-base-200 w-[70vw] mx-auto">
       <div className="flex-grow overflow-y-auto p-5">
         <div className="space-y-4">
           {messages.map((message, index) => {
