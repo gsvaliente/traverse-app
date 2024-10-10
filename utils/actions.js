@@ -74,8 +74,10 @@ If no information on exact ${city}, or ${city} exists, or it's population is les
 };
 
 export const createNewUniqueTour = async (tour) => {
+  const randomNumber = Math.floor(Math.random() * 6);
+  console.log(randomNumber);
   const user = await currentUser();
-  const { data } = await axios(`${url}${tour.city}`);
+  const { data } = await axios(`${url}${tour.city},${tour.country},${tour.tourType}`);
 
   return prisma.tour.create({
     data: {
@@ -83,7 +85,7 @@ export const createNewUniqueTour = async (tour) => {
       city: tour.city.toLowerCase(),
       country: tour.country.toLowerCase(),
       userId: user.id,
-      image: data?.results[0]?.urls?.raw,
+      image: data?.results[randomNumber]?.urls?.raw,
     },
   });
 };

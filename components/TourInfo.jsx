@@ -1,9 +1,14 @@
+import Image from "next/image";
+
 export function TourInfo({ tour }) {
-  const { title, description, tourType, tourLength, sights } = tour;
+  const { title, description, sights, image } = tour;
   console.log(tour);
   return (
-    <div className="h-[calc(100vh-7rem)] py-5 my-5">
+    <div className=" py-5 my-5">
       <h1 className="text-4xl font-semibold mb-10 text-center">{title}</h1>
+      <div className="flex justify-center items-center h-56 pb-8">
+        <Image src={image} width={500} height={250} priority alt={title} className="object-cover h-56 rounded-xl" />
+      </div>
       <p className="leading-loose mb-10">{description}</p>
 
       <div className="flex flex-wrap gap-5 justify-center mx-auto">
