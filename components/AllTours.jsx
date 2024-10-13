@@ -30,7 +30,7 @@ export function AllTours() {
             type="button"
             className="btn btn-primary join-item"
             disabled={isPending}
-            onClick={() => setSearchValue("")}
+            onClick={() => setUserSearchQuery("")}
           >
             {isPending ? "please wait" : "reset"}
           </button>
