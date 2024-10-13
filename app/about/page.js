@@ -57,7 +57,7 @@ export default function AboutPage() {
       <section className="py-16 bg-primary text-primary-content">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Start Your Travel Adventure?</h2>
-          <p className="mb-8">Join Traverse today and explore the world's most innovative destinations!</p>
+          <p className="mb-8">Join Traverse today and explore the worlds most innovative destinations!</p>
           <button className="btn btn-secondary btn-lg">Get Started</button>
         </div>
       </section>
