@@ -16,6 +16,7 @@ export function AllTours() {
 
   return (
     <div className=" py-5 my-5 flex flex-col items-center">
+      <h2 className="capitalize mt-5 text-4xl font-subTitle">All Your Tours</h2>
       <form className="max-w-lg mb-12  mt-5">
         <div className="join w-full">
           <input
