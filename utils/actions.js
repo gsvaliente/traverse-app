@@ -1,7 +1,6 @@
 "use server";
 
 import { currentUser } from "@clerk/nextjs/server";
-import axios from "axios";
 import OpenAI from "openai";
 import prisma from "./db";
 
@@ -30,8 +29,11 @@ export const createChatResponse = async (chatConversation) => {
 
 export const createTourResponse = async (destination) => {
   const { city, country, tourType, tourLength } = destination;
-  // city = city.toLowerCase().charAt(0).toUpperCase() + city.slice(1);
-  // country = country.toLowerCase().charAt(0).toUpperCase() + country.slice(1);
+
+  const randomNumber = Math.floor(Math.random() * 6);
+  const response = await fetch(`${url}${city},${country}`);
+  const data = await response.json();
+  const imageUrl = data?.results[randomNumber]?.urls?.raw;
 
   const query = `Find a ${city} in ${country}.
 If ${city} in ${country} exists, create a list of ${tourType} things can do in this ${city},${country}.
@@ -42,6 +44,7 @@ Once you have a list, create a ${tourLength}-day tour. Response should be in the
     "country": "${country}",
     "tourType":"${tourType}",
     "tourLength":"${tourLength}",
+    image:"${imageUrl}
     "title": "title of the tour",
     "description": "description of the city and tour",
     "sights": ["short paragraph of sight 1 ", "short paragraph of sight 2","short paragraph of sight 3", "short paragraph of sight 4"]
@@ -74,10 +77,12 @@ If no information on exact ${city}, or ${city} exists, or it's population is les
 };
 
 export const createNewUniqueTour = async (tour) => {
-  const randomNumber = Math.floor(Math.random() * 6);
-  console.log(randomNumber);
   const user = await currentUser();
-  const { data } = await axios(`${url}${tour.city},${tour.country},${tour.tourType}`);
+  // const randomNumber = Math.floor(Math.random() * 6);
+  // const response = await fetch(`${url}${tour.city},${tour.country}`);
+  // const data = await response.json();
+  // const imageUrl = data?.results[randomNumber]?.urls?.raw;
+  // const { data } = await axios(`${url}${tour.city},${tour.country},${tour.tourType}`);
 
   return prisma.tour.create({
     data: {
@@ -85,7 +90,6 @@ export const createNewUniqueTour = async (tour) => {
       city: tour.city.toLowerCase(),
       country: tour.country.toLowerCase(),
       userId: user.id,
-      image: data?.results[randomNumber]?.urls?.raw,
     },
   });
 };

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function TourInfo({ tour }) {
   const { title, description, sights, image } = tour;
-  console.log(tour);
+  console.log(image);
   return (
     <div className=" py-5 my-5">
       <h1 className="text-4xl font-semibold mb-10 text-center font-subTitle">{title}</h1>
