@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
                     <NavLinks />
                   </ul>
                 </div>
-                <Link href={"/"} className="btn btn-ghost text-xl">
+                <Link href={"/"} className="btn btn-ghost text-xl hover:bg-base-200">
                   <NavbarHeader />
                 </Link>
               </div>

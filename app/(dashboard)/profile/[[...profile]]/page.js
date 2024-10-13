@@ -1,5 +1,14 @@
 import { UserProfile } from "@clerk/nextjs";
 
+export const metadata = {
+  title: "Traverse App | Profile",
+  description: "Customize your profile right here.",
+};
+
 export default function ProfilePage() {
-  return <UserProfile />;
+  return (
+    <div className="mt-14">
+      <UserProfile />;
+    </div>
+  );
 }
