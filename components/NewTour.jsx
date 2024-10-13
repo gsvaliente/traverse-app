@@ -37,7 +37,7 @@ export function NewTour() {
   };
 
   return (
-    <div className="h-[calc(100vh-12rem)] py-10 my-5 flex flex-col px-3">
+    <div className="min-h-screen pt-10 my-5 flex flex-col px-3">
       <form className="flex items-center justify-center flex-col" onSubmit={handleSubmit}>
         <h2 className="capitalize mb-8 text-4xl">Create your dream destination</h2>
         <div className="join w-full join-vertical sm:join-horizontal">
@@ -82,7 +82,11 @@ export function NewTour() {
       </form>
       <div className="mt-5 max-w-3xl mx-auto">
         {isPending && <span className="loading loading-lg loading-ring"></span>}
-        {data ? <TourInfo tour={data} /> : null}
+        {data ? (
+          <div className="mt-5 max-w-3xl mx-auto">
+            <TourInfo tour={data} />
+          </div>
+        ) : null}
       </div>
     </div>
   );

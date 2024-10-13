@@ -4,7 +4,7 @@ export function NavbarHeader() {
   return (
     <>
       <FaCampground className="w-8 h-8 text-black" />
-      <h2 className="text-3xl font-extrabold text-black mr-auto">Traverse</h2>
+      <h2 className="text-3xl font-extrabold text-black mr-auto font-title">Traverse</h2>
     </>
   );
 }

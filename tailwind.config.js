@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        title: ["Ubuntu", "serif"],
+        subTitle: ["Chivo", "serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

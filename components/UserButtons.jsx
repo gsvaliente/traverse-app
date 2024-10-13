@@ -15,10 +15,10 @@ export async function UserButtons() {
 
   return (
     <>
-      <Link href={"/sign-in"} className="btn btn-primary">
+      <Link href={"/sign-in"} className="btn btn-primary btn-sm">
         Sign In
       </Link>
-      <Link href={"/sign-up"} className="btn btn-outline btn-primary">
+      <Link href={"/sign-up"} className="btn btn-neutral btn-primary btn-sm">
         Register
       </Link>
     </>
