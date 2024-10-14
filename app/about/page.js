@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export const metadata = {
   title: "About Traverse- Your Tech-Savvy Travel Companion",
   description: "Discover the story behind Traverse, the app that's revolutionizing travel experiences.",
@@ -34,12 +32,12 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {["Alice", "Bob", "Charlie"].map((name) => (
+            {["Gabriel", "Stefano", "Valiente"].map((name) => (
               <div key={name} className="card bg-base-200 shadow-xl">
                 <figure className="px-10 pt-10">
                   <div className="avatar">
                     <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                      <Image src={`/api/placeholder/150/150`} alt={name} width={150} height={150} />
+                      {/* <Image src={`/api/placeholder/150/150`} alt={name} width={150} height={150} /> */}
                     </div>
                   </div>
                 </figure>
