@@ -21,7 +21,7 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "Traverse App",
-  description: "Your AI assisted Travel Planner",
+  description: "Your AI assisted Travel Planner, discover what to do in your next trip.",
 };
 
 export default function RootLayout({ children }) {

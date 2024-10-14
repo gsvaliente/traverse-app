@@ -44,7 +44,7 @@ Once you have a list, create a ${tourLength}-day tour. Response should be in the
     "country": "${country}",
     "tourType":"${tourType}",
     "tourLength":"${tourLength}",
-    image:"${imageUrl}
+    "image":"${imageUrl},
     "title": "title of the tour",
     "description": "description of the city and tour",
     "sights": ["short paragraph of sight 1 ", "short paragraph of sight 2","short paragraph of sight 3", "short paragraph of sight 4"]
@@ -149,7 +149,6 @@ export const getAllTours = async (searchQuery) => {
     },
     orderBy: {
       city: "asc",
-      // tourType: "asc",
     },
   });
 
